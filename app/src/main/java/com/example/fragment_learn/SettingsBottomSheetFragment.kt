@@ -5,24 +5,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.fragment.app.Fragment
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class SettingsFragment : Fragment() {
+class SettingsBottomSheetFragment : BottomSheetDialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_settings, container, false)
+        return inflater.inflate(R.layout.fragment_settings_bottom_sheet, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val showBottomSheetButton = view.findViewById<Button>(R.id.btn_show_bottom_sheet)
-        showBottomSheetButton.setOnClickListener {
-            // 弹出半屏
-            val bottomSheet = SettingsBottomSheetFragment()
-            bottomSheet.show(parentFragmentManager, "SettingsBottomSheet")
+        // 初始化视图，比如按钮、文本等
+        val closeButton = view.findViewById<Button>(R.id.btn_close)
+        closeButton.setOnClickListener {
+            dismiss() // 关闭半屏
         }
     }
 }
