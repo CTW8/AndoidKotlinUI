@@ -11,7 +11,7 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlin.math.abs
 
-class FragmentTestActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fragment_test)
@@ -37,12 +37,12 @@ class FragmentTestActivity : AppCompatActivity() {
                     tabIcon.setImageResource(R.drawable.ic_home)
                 }
                 1 -> {
-                    tabText.text = "个人"
-                    tabIcon.setImageResource(R.drawable.ic_profile)
-                }
-                2 -> {
                     tabText.text = "设置"
                     tabIcon.setImageResource(R.drawable.ic_settings)
+                }
+                2 -> {
+                    tabText.text = "个人"
+                    tabIcon.setImageResource(R.drawable.ic_me)
                 }
             }
             tab.customView = tabView // 将自定义视图应用到Tab
@@ -54,8 +54,8 @@ class FragmentTestActivity : AppCompatActivity() {
                 tab?.customView?.let { view ->
                     val textView = view.findViewById<TextView>(R.id.tab_text)
                     val iconView = view.findViewById<ImageView>(R.id.tab_icon)
-                    textView.setTextColor(ContextCompat.getColor(this@FragmentTestActivity, R.color.selected_color))
-                    iconView.setColorFilter(ContextCompat.getColor(this@FragmentTestActivity, R.color.selected_color))
+                    textView.setTextColor(ContextCompat.getColor(this@HomeActivity, R.color.selected_color))
+                    iconView.setColorFilter(ContextCompat.getColor(this@HomeActivity, R.color.selected_color))
                 }
             }
 
@@ -63,8 +63,8 @@ class FragmentTestActivity : AppCompatActivity() {
                 tab?.customView?.let { view ->
                     val textView = view.findViewById<TextView>(R.id.tab_text)
                     val iconView = view.findViewById<ImageView>(R.id.tab_icon)
-                    textView.setTextColor(ContextCompat.getColor(this@FragmentTestActivity, R.color.unselected_color))
-                    iconView.setColorFilter(ContextCompat.getColor(this@FragmentTestActivity, R.color.unselected_color))
+                    textView.setTextColor(ContextCompat.getColor(this@HomeActivity, R.color.unselected_color))
+                    iconView.setColorFilter(ContextCompat.getColor(this@HomeActivity, R.color.unselected_color))
                 }
             }
 
